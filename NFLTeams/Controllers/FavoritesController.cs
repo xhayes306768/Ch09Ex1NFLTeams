@@ -14,7 +14,8 @@ namespace NFLTeams.Controllers
             {
                 ActiveConf = session.GetActiveConf(),
                 ActiveDiv = session.GetActiveDiv(),
-                Teams = session.GetMyTeams()
+                Teams = session.GetMyTeams(),
+                ActiveName = session.GetUsername()
             };
 
             return View(model);
