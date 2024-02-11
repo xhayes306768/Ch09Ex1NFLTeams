@@ -21,5 +21,21 @@ namespace NFLTeams.Controllers
 
             return View(model);
         }
+
+
+        public IActionResult Change(TeamViewModel model)
+        {
+            var userName = model.ActiveName;
+
+           
+            var session = new NFLSession(HttpContext.Session);
+            session.SetUsername(userName);
+
+            
+            return RedirectToAction("Index", "Home");
+
+
+        }
+
     }
 }
