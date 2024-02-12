@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -19,17 +20,20 @@
             }
 
             @* show link to Favorites page unless on Favorites page *@
-            @if (!ViewContext.View.Path.Contains("Favorites"))
-            {
-                var session = new NFLSession(Context.Session);
-                <h5 class="bg-info p-2">
-                    <a asp-controller="Favorites" asp-action="Index"
-                       class="text-white">My Favorite Teams</a>
+@if (!ViewContext.View.Path.Contains("Favorites"))
+{
+    var session = new NFLSession(Context.Session);
+    string sessionName = session.GetUsername();
 
-                    @* get number of Favorite teams from session and display in badge *@
-                    <span class="badge badge-light">@(session.GetMyTeamCount())</span>
-                </h5>
-            }
+    <h5 class="bg-info p-2">
+        <a asp-controller="Favorites" asp-action="Index" class="text-white">
+            @(string.IsNullOrEmpty(sessionName) ? "My" : sessionName + "'s") Favorite Teams
+        </a>
+    
+        <!-- get number of Favorite teams from session and display in badge -->
+        <span class="badge badge-light">@session.GetMyTeamCount()</span>
+    </h5>
+}
         </header>
         <main>
             @RenderBody()

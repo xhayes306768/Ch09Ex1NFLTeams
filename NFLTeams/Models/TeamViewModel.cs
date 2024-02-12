@@ -6,6 +6,6 @@
         public string ActiveConf { get; set; }
         public string ActiveDiv { get; set; }
 
-        public string ActiveName { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
     }
 }

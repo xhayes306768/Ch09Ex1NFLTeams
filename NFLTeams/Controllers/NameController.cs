@@ -14,7 +14,7 @@ namespace NFLTeams.Controllers
                 ActiveConf = session.GetActiveConf(),
                 ActiveDiv = session.GetActiveDiv(),
                 Teams = session.GetMyTeams(),
-                ActiveName = session.GetUsername()
+                UserName = session.GetUsername()
 
 
             };
@@ -25,7 +25,7 @@ namespace NFLTeams.Controllers
 
         public IActionResult Change(TeamViewModel model)
         {
-            var userName = model.ActiveName;
+            var userName = model.UserName;
 
            
             var session = new NFLSession(HttpContext.Session);
