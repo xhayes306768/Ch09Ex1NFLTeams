@@ -20,7 +20,7 @@
             }
 
             @* show link to Favorites page unless on Favorites page *@
-@if (!ViewContext.View.Path.Contains("Favorites"))
+@if (!ViewContext.View.Path.Contains("Favorites")) 
 {
     var session = new NFLSession(Context.Session);
     string sessionName = session.GetUsername();
